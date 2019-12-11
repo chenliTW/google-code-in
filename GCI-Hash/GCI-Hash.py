@@ -1,39 +1,39 @@
 import hashlib
 
-md5=hashlib.md5()
-sha1=hashlib.sha1()
-sha224=hashlib.sha224()
-sha256=hashlib.sha256()
-sha384=hashlib.sha3_384()
-sha512=hashlib.sha512()
-
 def do_hash(method,word):
     if method=="1":
+        md5=hashlib.md5()
         md5.update(word.encode())
         return md5.hexdigest()
     elif method=="2":
+        sha1=hashlib.sha1()
         sha1.update(word.encode())
         return sha1.hexdigest()
     elif method=="3":
+        sha224=hashlib.sha224()
         sha224.update(word.encode())
         return sha224.hexdigest()
     elif method=="4":
+        sha256=hashlib.sha256()
         sha256.update(word.encode())
         return sha256.hexdigest()
     elif method=="5":
+        sha384=hashlib.sha3_384()
         sha384.update(word.encode())
         return sha384.hexdigest()
     elif method=="6":
+        sha512=hashlib.sha512()
         sha512.update(word.encode())
         return sha512.hexdigest()
     
 def burte_hash(hash_target,wordlist):
+    table={32:1,40:2,56:3,64:4,96:5,128:6}
+    method=table[len(hash_target)]
     wordlist=wordlist.split('\n')
     for word in wordlist: 
-        for method in range(1,7):
-            if str(do_hash(str(method),word))==hash_target:
-                print("\033[92m"+"[+]found --> "+hash_target+" = "+word+"\033[0m")
-                return
+        if str(do_hash(str(method),word))==hash_target:
+            print("\033[92m"+"[+]found --> "+hash_target+" = "+word+"\033[0m")
+            return
     print("\033[91m"+"[-]sorry no word match hash"+"\033[0m")
     return
 
