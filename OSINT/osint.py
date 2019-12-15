@@ -17,5 +17,6 @@ if __name__=="__main__":
         if site[i]['check'](site[i]['url'],username,""):
             found=True
             print("\033[0;32m"+"[+]User Present in "+i+"\033[0m")
+            print("    "+site[i]['url']+username)
     if not found:
         print("\033[0;31m[-]User not found in our site list\033[0m")
