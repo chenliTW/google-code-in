@@ -23,7 +23,7 @@ def index():
         if "code" in data:
             return "404<br>your requested apod not found in NASA",404
         html=render_template("result.html",title=data["title"],date=data["date"],image_url=data["url"],explanation=data["explanation"])
-        html_footer="<body></html>"
+        html_footer="</body></html>"
         pdfkit.from_string(html+html_footer, "static/"+data["date"]+'.pdf')
         return  html+"<center><button  onclick=\"window.open('/pdf/"+data["date"]+".pdf')\">Download as PDF</button></center>"+html_footer
 
