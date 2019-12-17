@@ -25,6 +25,13 @@ def check_sum(version):
     correct_hash=res.text.split(version+") = ")[1][:64]
     return str(sha256.hexdigest())==correct_hash
 
+def work_station_check_sum():
+    sha256=hashlib.sha256()
+    sha256.update(open(image_save_path,"rb").read())
+    res=requests.get("https://getfedora.org/static/checksums/Fedora-Workstation-31-1.9-x86_64-CHECKSUM")
+    correct_hash=res.text.split(") = ")[1][:64]
+    return str(sha256.hexdigest())==correct_hash
+
 def detect_and_chose_usb():
     res=os.popen("ls /dev/ | grep sd").read()
     print(res)
@@ -48,6 +55,7 @@ def burn_to_usb(device):
 
 if __name__=="__main__":
     spin_opt=[
+        {"name":"Fedora Workstation","image_url":"https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso"},
         {"name":"Cinnamon","image_url":"Fedora-Cinnamon-Live-x86_64-31-1.9.iso"},
         {"name":"KDE","image_url":"Fedora-KDE-Live-x86_64-31-1.9.iso"},
         {"name":"LXDE","image_url":"Fedora-LXDE-Live-x86_64-31-1.9.iso"},
@@ -60,13 +68,22 @@ if __name__=="__main__":
     for i in range(len(spin_opt)):
        print(str(i+1)+". "+spin_opt[i]["name"])
     user_opt=int(input("Chose the spin you want to download : "))-1
-    download_image(image_base_url+spin_opt[user_opt]["image_url"])
-    if not check_sum(spin_opt[user_opt]["image_url"]):
-        print("check sum failed!!!\nExiting ...")
-        os.remove(image_save_path)
-        exit(0)
+    if user_opt==0:
+        download_image(spin_opt[user_opt]["image_url"])
+        if not work_station_check_sum():
+            print("check sum failed!!!\nExiting ...")
+            os.remove(image_save_path)
+            exit(0)
+        else:
+            print("[+]checksum passed")
     else:
-        print("[+]checksum passed")
+        download_image(image_base_url+spin_opt[user_opt]["image_url"])
+        if not check_sum(spin_opt[user_opt]["image_url"]):
+            print("check sum failed!!!\nExiting ...")
+            os.remove(image_save_path)
+            exit(0)
+        else:
+            print("[+]checksum passed")
     device=detect_and_chose_usb()
     check_user=input("Are you sure to burn Fedora "+spin_opt[user_opt]["name"]+" into "+device+" ?[Y/N]")
     if check_user=="Y" or check_user=="y":
