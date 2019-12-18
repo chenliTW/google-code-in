@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Thu, 19 Dec 2019 00:11:32 +0800
+Source: tictactoe
+Binary: python3-tictactoe
+Architecture: all
+Version: 0.8-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Changed-By: Chenlitw <ab0897867564534231@gmail.com>
+Description:
+ python3-tictactoe - old school Tic Tac Toe
+Changes:
+ tictactoe (0.8-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ f8de1118ad308d22879e8e149df4373875d08498 3232 python3-tictactoe_0.8-1_all.deb
+ 7408d702a7619f2e1948fc923931a7b65be8c5d3 5910 tictactoe_0.8-1_amd64.buildinfo
+Checksums-Sha256:
+ 2533e13fad16da7bc06c74c93fad96396eb92fd0bb94446b6ceb9bceed0c113c 3232 python3-tictactoe_0.8-1_all.deb
+ 1a4f8b75f51d842f3d06581c9de4e4cc86932a475619f9403f346e53192b33a1 5910 tictactoe_0.8-1_amd64.buildinfo
+Files:
+ 281ce1cfac0b20126c223e7a2efecb03 3232 python optional python3-tictactoe_0.8-1_all.deb
+ 96114897015869bbd47961a23d1f408a 5910 python optional tictactoe_0.8-1_amd64.buildinfo

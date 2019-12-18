@@ -1,0 +1,10 @@
+Package: python3-tictactoe
+Source: tictactoe
+Version: 0.8-1
+Architecture: all
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Installed-Size: 26
+Depends: python3:any (>= 3.3.2-2~)
+Section: python
+Priority: optional
+Description: old school Tic Tac Toe

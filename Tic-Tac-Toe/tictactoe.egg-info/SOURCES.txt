@@ -1,0 +1,9 @@
+setup.py
+tictactoe.desktop
+tictactoe/__init__.py
+tictactoe/game.py
+tictactoe.egg-info/PKG-INFO
+tictactoe.egg-info/SOURCES.txt
+tictactoe.egg-info/dependency_links.txt
+tictactoe.egg-info/entry_points.txt
+tictactoe.egg-info/top_level.txt

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=0.8
+Type=Application
+Name=Tic-Tac-Toe
+Exec=tictactoe
+Categories=Utility;
+Terminal=true
+StartupNotify=true
+StartupWMClass=game

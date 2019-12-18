@@ -1,0 +1,9 @@
+6b64df15a243b13be6c91f3f80cfbbf8  usr/bin/tictactoe
+85139c008302a5a5f1b0fe7329fb6aa8  usr/lib/python3/dist-packages/tictactoe-0.8.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/tictactoe-0.8.egg-info/dependency_links.txt
+4a47907f92af5187b3365b9850cd0860  usr/lib/python3/dist-packages/tictactoe-0.8.egg-info/entry_points.txt
+8cd6f4872c9fd18c201dccc15a062c1b  usr/lib/python3/dist-packages/tictactoe-0.8.egg-info/top_level.txt
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/tictactoe/__init__.py
+7b532346aa605608ca85ed343be9a3de  usr/lib/python3/dist-packages/tictactoe/game.py
+781aacc851ada73594a61ca00badb601  usr/share/applications/tictactoe.desktop
+4b44027ec039efd0c9e6c269c98015b8  usr/share/doc/python3-tictactoe/changelog.Debian.gz

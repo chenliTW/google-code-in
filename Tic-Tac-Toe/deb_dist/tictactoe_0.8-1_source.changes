@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Thu, 19 Dec 2019 00:11:32 +0800
+Source: tictactoe
+Binary: python3-tictactoe
+Architecture: source
+Version: 0.8-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Changed-By: Chenlitw <ab0897867564534231@gmail.com>
+Description:
+ python3-tictactoe - old school Tic Tac Toe
+Changes:
+ tictactoe (0.8-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ e7d2c852232c4af3f4b1b7c2c6e59f3161c511df 832 tictactoe_0.8-1.dsc
+ 53d4c0632a53258d5d4c74f494c69f3a63b5cac9 1810 tictactoe_0.8.orig.tar.gz
+ c6264ae616a5eae2edc48ab74cedef14c88bdc57 848 tictactoe_0.8-1.debian.tar.xz
+ f7b2013845cbcd4c1e92e58ebf5c8486e41cbe67 5874 tictactoe_0.8-1_source.buildinfo
+Checksums-Sha256:
+ 2217f2a606c54d3947fe08ec24f9bd8b9da6d7ef9f4059b3be91cfc987dbc384 832 tictactoe_0.8-1.dsc
+ e83ee32922c3c0511c993868a558a4d59ec12d787b6509e1dbc420eef7261c6f 1810 tictactoe_0.8.orig.tar.gz
+ 6b93720a9e13782ba2a1d79121fd5b063ae36ac9c15ccc1bf0ee863cd986aa0f 848 tictactoe_0.8-1.debian.tar.xz
+ bf939e493d2cab27ac5108ca33b6645e3092763f524c7cbf71c0e507dc2a3690 5874 tictactoe_0.8-1_source.buildinfo
+Files:
+ 2432893245640975a2318808eaedc302 832 python optional tictactoe_0.8-1.dsc
+ 890c22d96a5c6586f2eb29bc60d84cb9 1810 python optional tictactoe_0.8.orig.tar.gz
+ c14f7f26e5f5984f7fcd247446a94e38 848 python optional tictactoe_0.8-1.debian.tar.xz
+ b61a281428a841d47ead741e5d0e9ecb 5874 python optional tictactoe_0.8-1_source.buildinfo
