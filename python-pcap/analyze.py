@@ -51,7 +51,7 @@ def user_agent():
         except:
             pass
     record=sorted(record.items(), key=operator.itemgetter(1))[::-1]
-    output=(" count |                        User-Agent\n")
+    output=(" count |                 User-Agent\n")
     for i in range(len(record)):
         output+="{:<7}|  {}\n".format(record[i][1],record[i][0])
     os.system("clear")
@@ -72,7 +72,7 @@ def conn_details():
             pass
 def search_string():
     string=input("Search String : ")
-    for i in cap:
+    for i in cap_raw:
         try:
             id_to_name={'6':'TCP','17':'UDP'}
             proto=id_to_name[i['ip'].proto]
@@ -135,7 +135,8 @@ def ports_used():
 
 if __name__=="__main__":
     file_path=input("Location Pcap File > ")
-    cap = pyshark.FileCapture(file_path,include_raw=True,use_json=True)
+    cap_raw = pyshark.FileCapture(file_path,include_raw=True,use_json=True)
+    cap=pyshark.FileCapture(file_path)
     actions=[
         topten,
         user_agent,
