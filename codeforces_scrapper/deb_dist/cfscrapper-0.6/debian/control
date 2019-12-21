@@ -1,0 +1,12 @@
+Source: cfscrapper
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: dh-python, python3-setuptools, python3-all, debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: python3-cfscrapper
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: codeforce scrapper
+

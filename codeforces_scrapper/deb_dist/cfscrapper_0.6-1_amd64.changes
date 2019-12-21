@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sun, 22 Dec 2019 00:33:42 +0800
+Source: cfscrapper
+Binary: python3-cfscrapper
+Architecture: all
+Version: 0.6-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Changed-By: Chenlitw <ab0897867564534231@gmail.com>
+Description:
+ python3-cfscrapper - codeforce scrapper
+Changes:
+ cfscrapper (0.6-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ 2dc3fbbca343d1e645c7190da4a0eacee698bb90 5915 cfscrapper_0.6-1_amd64.buildinfo
+ 9e6decbe8fa7d806c526fab75dbee0a27aee6ecd 3196 python3-cfscrapper_0.6-1_all.deb
+Checksums-Sha256:
+ 94f8a3b5b3ccee7d68d430bbf997b647eed19dd0e66d4151eeefe4fb002e29c3 5915 cfscrapper_0.6-1_amd64.buildinfo
+ 5f5cbc38336b6b02094e58fbd9ec7a7be41edde5002256599ffcf1ebf998aa61 3196 python3-cfscrapper_0.6-1_all.deb
+Files:
+ 1706d6c4bf78d05265452c7c31c254c9 5915 python optional cfscrapper_0.6-1_amd64.buildinfo
+ 69b67345e461d38b17a7fb537ef2c91f 3196 python optional python3-cfscrapper_0.6-1_all.deb

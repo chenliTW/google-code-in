@@ -1,0 +1,3 @@
+[console_scripts]
+cfscrapper = cfscrapper.cfscrapper:main
+

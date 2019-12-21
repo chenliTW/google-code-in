@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.6
+Type=Application
+Name=cfscrapper
+Exec=cfscrapper
+Categories=Utility;
+Terminal=true
+StartupNotify=true
+StartupWMClass=cfscrapper
+

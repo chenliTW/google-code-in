@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 22 Dec 2019 00:33:42 +0800
+Source: cfscrapper
+Binary: python3-cfscrapper
+Architecture: source
+Version: 0.6-1
+Distribution: unstable
+Urgency: low
+Maintainer: Chenlitw <ab0897867564534231@gmail.com>
+Changed-By: Chenlitw <ab0897867564534231@gmail.com>
+Description:
+ python3-cfscrapper - codeforce scrapper
+Changes:
+ cfscrapper (0.6-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ 1604ad783bdefbd95378f5ce900997c79a2251f0 841 cfscrapper_0.6-1.dsc
+ 2713ea62ea6f01656c98a678eb8decba9424eb31 1729 cfscrapper_0.6.orig.tar.gz
+ c4949f64c9392ee7b425014cafa7e2b0a530ad42 840 cfscrapper_0.6-1.debian.tar.xz
+ b8a6431eb664b641432fdae6dbc9dae51d349a5a 5879 cfscrapper_0.6-1_source.buildinfo
+Checksums-Sha256:
+ edd8432cc30f85319a6a94fc8978e973403aedcf29290e9c1b8edc38a2dc5445 841 cfscrapper_0.6-1.dsc
+ f76c599e91314a03818a0afcdd192f395dcfeb75ab6360cb0f34f62b568de89f 1729 cfscrapper_0.6.orig.tar.gz
+ cfb4de1edc9dfb0176e5ae14e9e9c95eed2c6ba4fe879f49308b94fc78850ed2 840 cfscrapper_0.6-1.debian.tar.xz
+ d27faa1fc660f59fa5ff7724195d695062f65c0f204acea6e6329fa2635d32ce 5879 cfscrapper_0.6-1_source.buildinfo
+Files:
+ 4cb9f2ea3891c7c883796eff20f5f99b 841 python optional cfscrapper_0.6-1.dsc
+ dd7cb272eea26b86c755e55d3188aab9 1729 python optional cfscrapper_0.6.orig.tar.gz
+ 04f2ae55b82735a330ce60d77e2c208a 840 python optional cfscrapper_0.6-1.debian.tar.xz
+ 4ff38a1dfbf78d39c5795aff26afba7b 5879 python optional cfscrapper_0.6-1_source.buildinfo

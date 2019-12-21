@@ -1,0 +1,9 @@
+cfscrapper.desktop
+setup.py
+cfscrapper/__init__.py
+cfscrapper/cfscrapper.py
+cfscrapper.egg-info/PKG-INFO
+cfscrapper.egg-info/SOURCES.txt
+cfscrapper.egg-info/dependency_links.txt
+cfscrapper.egg-info/entry_points.txt
+cfscrapper.egg-info/top_level.txt
