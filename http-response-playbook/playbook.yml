@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Capture the responce code
+    uri:
+      url: https://lee-tw.me/flask/
+    register: result
+  - name: debug
+    debug:
+      msg: "{{result}}"
