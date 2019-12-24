@@ -34,8 +34,8 @@ def main():
         image=pygame.transform.scale(raw_image, (600, 400))
 
         start_time=pygame.time.get_ticks()
-
-        textbox_text = 'input answer'
+        wrong=False
+        textbox_text = ''
         textbox_color = pygame.Color('gray')
 
         hinted=False
@@ -46,7 +46,7 @@ def main():
                 print(event)
                 if event.type == QUIT:
                     pygame.quit()
-                    exit(0)
+                    sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if hintbox.collidepoint(event.pos):
                         hinted=True
@@ -62,19 +62,24 @@ def main():
                         textbox_text = textbox_text [:-1]
                     else:
                         textbox_text  += event.unicode
+            gui.fill((255, 255, 255))
             if submit and textbox_text==level_data[level]["answer"]:
                 break
             elif submit:
                 submit=False
-                textbox_text="Wrong Answer"
-            gui.fill((255, 255, 255))
+                wrong=True
+                textbox_text=""
+            
+            if wrong:
+                WA=font.render("Wrong answer",True,(0,0,0))
+                gui.blit(WA,(200,535))
 
-            countdown=(15000-(pygame.time.get_ticks()-start_time))//100/10
+            countdown=(15000-(pygame.time.get_ticks()-start_time))//1000
             if countdown<0:
                 pygame.quit()
                 Tk().wm_withdraw()
                 messagebox.showinfo('You lose!!!','You lose!!!')
-                exit(0)
+                sys.exit()
 
             countdown_timer = font.render('time left: {}s'.format(countdown), True, (0, 0, 0))
             gui.blit(countdown_timer, (500, 25))
@@ -96,7 +101,7 @@ def main():
                 gui.blit(hint,(200,25))
 
             pygame.display.flip()
-            #pygame.time.Clock().tick(60)
+            pygame.time.Clock().tick(60)
 
 
 if __name__ == '__main__':    
