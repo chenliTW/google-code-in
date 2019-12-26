@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-  - name: run the new module
+  - name: Capture the responce code
     fetch_status:
       url: https://lee-tw.me/
     register: result
