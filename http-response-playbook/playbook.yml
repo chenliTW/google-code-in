@@ -1,10 +1,9 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Capture the responce code
-    uri:
-      url: https://lee-tw.me/flask/
+  - name: run the new module
+    fetch_status:
+      url: https://lee-tw.me/
     register: result
   - name: debug
-    debug:
-      msg: "{{result}}"
+    debug: var=result
