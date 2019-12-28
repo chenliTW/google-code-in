@@ -1,0 +1,13 @@
+[Unit]
+Description=Flask web service
+
+[Service]
+User=chen
+WorkingDirectory=/home/chen/web/
+Type=simple
+ExecStart=/usr/bin/python3 app.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
