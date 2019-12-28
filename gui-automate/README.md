@@ -1,8 +1,11 @@
 to make the script auto start.
-add
+open Startup Applications program
+![](https://github.com/chenliTW/google-code-in/raw/master/gui-automate/1.png)
+
+Add  a command
+```bash
+python3 {PATH to this dir}/app.py
 ```
-sudo python3 {path to this dir}/app.py
-```
-to the buttom of /etc/profile file
+![](https://github.com/chenliTW/google-code-in/raw/master/gui-automate/2.png)
 
 And that all :)
