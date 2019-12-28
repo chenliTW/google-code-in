@@ -1,4 +1,8 @@
-![]()
+![](https://github.com/chenliTW/google-code-in/raw/master/time-bound-computation/result.png)
+
+blue=numpy
+orange=@numba.jit
+red=hardcode
 
 numpy.dot is faster because it use optimized compiled code, and it is way more faster than python interpreter.
 
