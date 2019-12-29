@@ -69,7 +69,7 @@ if __name__=="__main__":
        print(str(i+1)+". "+spin_opt[i]["name"])
     user_opt=int(input("Chose the spin you want to download : "))-1
     if user_opt==0:
-        download_image(spin_opt[user_opt]["image_url"])
+        #download_image(spin_opt[user_opt]["image_url"])
         if not work_station_check_sum():
             print("check sum failed!!!\nExiting ...")
             os.remove(image_save_path)
