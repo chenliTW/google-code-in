@@ -2,7 +2,7 @@ from newsapi import NewsApiClient
 from flask import Flask
 
 
-api_key=''
+api_key='43d9d4371c494c41ba90ce038ac627f1'
 
 newsapi = NewsApiClient(api_key=api_key)
 
