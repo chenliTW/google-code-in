@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=python3 /home/chen/文件/GitHub/google-code-in/gui-automate/app.py
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=guiautomate

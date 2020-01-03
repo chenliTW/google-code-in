@@ -1,11 +1,18 @@
 to make the script auto start.
-open Startup Applications program
-![](https://github.com/chenliTW/google-code-in/raw/master/gui-automate/1.png)
+create a new file named ```guiautomate.desktop```
 
-Add  a command
-```bash
-python3 {PATH to this dir}/app.py
+with content:  
 ```
-![](https://github.com/chenliTW/google-code-in/raw/master/gui-automate/2.png)
+[Desktop Entry]
+Type=Application
+Exec=python3 [path to the python script]
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=guiautomate
+```
+the copy it into ``` ~/.config/autostart ```
+```bash
+cp guiautomate.desktop /home/chen/.config/autostart
+```
 
 And that all :)
