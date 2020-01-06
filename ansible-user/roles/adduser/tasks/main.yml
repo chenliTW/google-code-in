@@ -1,5 +1,5 @@
 ---
-  - name: add user
+  - name: add user "chenlitw"
     user:
       name: chenlitw
       comment: gci
