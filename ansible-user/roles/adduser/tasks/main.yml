@@ -1,0 +1,7 @@
+---
+  - name: add user
+    user:
+      name: chenlitw
+      comment: gci
+      uid: 1008
+      group: admin
