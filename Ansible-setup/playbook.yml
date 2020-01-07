@@ -10,6 +10,7 @@
       - kolourpaint
       - VirtualBox
       - git
+      - snapd 
     useless_software:
       - Cheese
 
@@ -54,3 +55,8 @@
       service:
         name: nginx
         enabled: yes
+
+    - name: install vscode
+      snap:
+        name: code
+        classic: yes
