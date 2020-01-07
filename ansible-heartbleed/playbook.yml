@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Check if system is vulnerable
+    command: echo `sudo lsof -n | grep ssl | grep DEL | wc -l`
+    register: result
+  - name: debug
+    debug: var=result
