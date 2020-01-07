@@ -15,13 +15,13 @@
     apt:
       name: openssl
       state: latest
-    when: result["stdout"]
+    when: result["stdout"]!="0"
   - name: restart services 
     service:
       name: "{{ item }}"
       state: restarted
     with_items: "{{ services }}"
     when: 
-      - result["stdout"]
+      - result["stdout"]!="0"
     ignore_errors: yes
 
