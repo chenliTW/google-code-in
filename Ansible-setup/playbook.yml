@@ -5,12 +5,12 @@
     good_software:
       - chromium
       - discord
-      - gnome-tweak
+      - gnome-tweak-tool
       - telegram-desktop
       - kolourpaint
       - VirtualBox
       - git
-      - snapd 
+      - vim 
     useless_software:
       - Cheese
 
@@ -22,19 +22,19 @@
       dnf: list=updates
 
     - name: install rpmfusion
-      shell: "sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+      shell: "sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y"
 
     - name: install custom software
       dnf:
         name: "{{ item }}"
       with_items: "{{ good_software }}"
-
+      become: true
     - name: remove useless software
       dnf:
         name: "{{ item }}"
         state: absent
       with_items: "{{ useless_software }}"
-
+      become: true
     - name: placing ssh key
       copy: content="{{ sshkey }}" dest=~/.ssh/id_rsa
 
@@ -50,13 +50,9 @@
     - name: install nginx (http)
       dnf:
         name: "nginx"
-
+      become: true
     - name: enable nginx (http)
       service:
         name: nginx
         enabled: yes
-
-    - name: install vscode
-      snap:
-        name: code
-        classic: yes
+      become: true
