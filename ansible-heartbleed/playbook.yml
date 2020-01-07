@@ -1,8 +1,27 @@
 ---
 - hosts: localhost
+  vars:
+    services:
+       - nginx
+       - apacpenvpn
+       - postfix
+       - monit
+       - unbound
   tasks:
   - name: Check if system is vulnerable
-    command: echo `sudo lsof -n | grep ssl | grep DEL | wc -l`
+    shell: sudo lsof -n | grep ssl | grep DEL | wc -l
     register: result
-  - name: debug
-    debug: var=result
+  - name: update openssl
+    apt:
+      name: openssl
+      state: latest
+    when: result["stdout"]
+  - name: restart services 
+    service:
+      name: "{{ item }}"
+      state: restarted
+    with_items: "{{ services }}"
+    when: 
+      - result["stdout"]
+    ignore_errors: yes
+
