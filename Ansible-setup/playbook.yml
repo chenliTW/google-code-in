@@ -1,0 +1,56 @@
+---
+- hosts: localhost
+
+  vars:
+    good_software:
+      - chromium
+      - discord
+      - gnome-tweak
+      - telegram-desktop
+      - kolourpaint
+      - VirtualBox
+      - git
+    useless_software:
+      - Cheese
+
+  vars_files:
+    - files/main.yml
+
+  tasks:
+    - name: dnf update
+      dnf: list=updates
+
+    - name: install rpmfusion
+      shell: "sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+
+    - name: install custom software
+      dnf:
+        name: "{{ item }}"
+      with_items: "{{ good_software }}"
+
+    - name: remove useless software
+      dnf:
+        name: "{{ item }}"
+        state: absent
+      with_items: "{{ useless_software }}"
+
+    - name: placing ssh key
+      copy: content="{{ sshkey }}" dest=~/.ssh/id_rsa
+
+    - name: Set up Vundle
+      git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
+    - name: placing vim config
+      copy: remote_src=True src=./.vimrc dest=~/.vimrc
+    - name: install Vundle
+      command: "vim +PluginInstall +qall"
+
+    - name: install nginx (http)
+      dnf:
+        name: "nginx"
+
+    - name: enable nginx (http)
+      service:
+        name: nginx
+        enabled: yes
