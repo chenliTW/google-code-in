@@ -2,6 +2,7 @@
 - hosts: localhost
 
   vars:
+    fedora_version: "31"
     good_software:
       - chromium
       - discord
@@ -18,10 +19,10 @@
     - files/main.yml
 
   roles:
-    - { role: packages, become: yes ,become_user: root}
+    - { role: packages, become: yes}
     - { role: keys}
     - { role: vimsetup}
-    - { role: http, become: yes ,become_user: root}
+    - { role: http, become: yes}
 
 
 
