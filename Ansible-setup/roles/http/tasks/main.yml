@@ -1,0 +1,8 @@
+---
+  - name: install nginx (http)
+    dnf:
+      name: "nginx"
+  - name: enable nginx (http)
+    service:
+      name: nginx
+      enabled: yes

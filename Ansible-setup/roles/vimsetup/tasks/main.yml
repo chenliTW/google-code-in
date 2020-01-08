@@ -1,0 +1,9 @@
+---
+  - name: Set up Vundle
+    git:
+      repo: https://github.com/VundleVim/Vundle.vim.git
+      dest: ~/.vim/bundle/Vundle.vim
+  - name: placing vim config
+    copy: remote_src=True src=./.vimrc dest=~/.vimrc
+  - name: install Vundle
+    command: "vim +PluginInstall +qall"

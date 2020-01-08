@@ -19,26 +19,10 @@
 
   roles:
     - { role: packages, become: yes ,become_user: root}
-    
-  tasks:
-    - name: placing ssh key
-      copy: content="{{ sshkey }}" dest=~/.ssh/id_rsa
+    - { role: keys}
+    - { role: vimsetup}
+    - { role: http, become: yes ,become_user: root}
 
-    - name: Set up Vundle
-      git:
-        repo: https://github.com/VundleVim/Vundle.vim.git
-        dest: ~/.vim/bundle/Vundle.vim
-    - name: placing vim config
-      copy: remote_src=True src=./.vimrc dest=~/.vimrc
-    - name: install Vundle
-      command: "vim +PluginInstall +qall"
 
-    - name: install nginx (http)
-      dnf:
-        name: "nginx"
-      become: true
-    - name: enable nginx (http)
-      service:
-        name: nginx
-        enabled: yes
-      become: true
+
+

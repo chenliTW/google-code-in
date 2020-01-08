@@ -1,0 +1,3 @@
+---
+  - name: placing ssh key
+    copy: content="{{ sshkey }}" dest=~/.ssh/id_rsa
