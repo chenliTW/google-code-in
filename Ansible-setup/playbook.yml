@@ -18,7 +18,7 @@
     - files/main.yml
 
   roles:
-    - { role: packages, become: yes }
+    - { role: packages, become: yes ,become_user: root}
     
   tasks:
     - name: placing ssh key
