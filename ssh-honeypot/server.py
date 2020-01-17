@@ -21,7 +21,8 @@ class Server(paramiko.ServerInterface):
 
     def check_auth_password(self, username, password):
         log.write(username+" - "+password+"\n")
-        log.flush();
+        log.flush()
+        print(username+" - "+password)
         return paramiko.AUTH_SUCCESSFUL
 
     def get_allowed_auths(self, username):
@@ -35,34 +36,41 @@ class Server(paramiko.ServerInterface):
         return True
 
 def main():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind((HOST, PORT))
-    sock.listen(100)
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sock.bind((HOST, PORT))
+    except Exception as e:
+        print(str(e))
     while True:
-        client, addr = sock.accept()
-        log.write(time.strftime("[%Y-%m-%d %H:%M:%S] - ", time.localtime())+addr[0]+" - ")
         try:
-            tran = paramiko.Transport(client)
-            tran.set_gss_host(socket.getfqdn(""))
-            tran.load_server_moduli()
-            tran.add_server_key(host_key)
-            server = Server()
-            tran.start_server(server=server)
-            chan = tran.accept(None)
-            server.event.wait(10)
-            chan.send("Welcome to the server!\r\n")
-            while True:
-                chan.send("sh-5.0$ ")
-                recv=chan.makefile("rU").readline().strip("\r\n")
-                if recv=="exit":
-                    break
-                if len(recv):
-                    chan.send("\r\nsh: "+recv+" : command not found\r\n")
-                else:
-                    chan.send("\r\n")
-            chan.send("\r\nlogout\r\n")
-            chan.close()
+            sock.listen(100)
+            client, addr = sock.accept()
+            log.write(time.strftime("[%Y-%m-%d %H:%M:%S] - ", time.localtime())+addr[0]+" - ")
+            print(time.strftime("[%Y-%m-%d %H:%M:%S] - ", time.localtime())+addr[0]+" - ",end='')
+            try:
+                tran = paramiko.Transport(client)
+                tran.set_gss_host(socket.getfqdn(""))
+                tran.load_server_moduli()
+                tran.add_server_key(host_key)
+                server = Server()
+                tran.start_server(server=server)
+                chan = tran.accept(None)
+                server.event.wait(10)
+                chan.send("Welcome to the server!\r\n")
+                while True:
+                    chan.send("sh-5.0$ ")
+                    recv=chan.makefile("rU").readline().strip("\r\n")
+                    if recv=="exit":
+                        break
+                    if len(recv):
+                        chan.send("\r\nsh: "+recv+" : command not found\r\n")
+                    else:
+                        chan.send("\r\n")
+                chan.send("\r\nlogout\r\n")
+                chan.close()
+            except Exception as e:
+                print(str(e.__class__))
         except Exception as e:
-            print(str(e.__class__))
+            print(str(e))
 main()
